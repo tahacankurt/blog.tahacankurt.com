@@ -4,6 +4,8 @@ export default function Head() {
   function a (){
     
   }
+
+  
   return (
     <>
       <title>Blog</title>
