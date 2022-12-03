@@ -1,19 +1,23 @@
-"use client";
-import React, { createContext, useContext, useEffect, useState } from "react";
+'use client';
+
+import React, {
+  createContext, useEffect, useState,
+} from 'react';
 
 export const THEME = {
-    LIGHT: 'light',
-    DARK: 'dark',
-}
+  LIGHT: 'light',
+  DARK: 'dark',
+};
 
-interface ThemeContextInterface {
+interface IThemeContext {
   theme: string | null;
+  // eslint-disable-next-line no-unused-vars
   setTheme: (c: string) => void;
 }
 
-export const ThemeContext = createContext<ThemeContextInterface>({
+export const ThemeContext = createContext<IThemeContext>({
   theme: THEME.LIGHT,
-  setTheme: (_value: string) => {},
+  setTheme: () => {},
 });
 
 export default function ThemeProvider({
@@ -34,6 +38,7 @@ export default function ThemeProvider({
   }, [theme]);
 
   return (
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
