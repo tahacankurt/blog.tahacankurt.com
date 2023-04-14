@@ -20,20 +20,33 @@ export const ThemeContext = createContext<IThemeContext>({
   setTheme: () => {},
 });
 
+const initDocTheme = (theme: string) => {
+  if (theme !== THEME.DARK) {
+    document.documentElement.classList.remove(THEME.DARK);
+  }
+  document.documentElement.classList.add(theme);
+  localStorage.theme = theme;
+};
+
 export default function ThemeProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const [theme, setTheme] = useState(localStorage.theme);
-
   useEffect(() => {
-    if (theme === THEME.DARK) {
-      document.documentElement.classList.add(THEME.DARK);
-      localStorage.theme = THEME.DARK;
+    // If theme initialized before
+    if (theme) {
+      initDocTheme(theme);
     } else {
-      document.documentElement.classList.remove(THEME.DARK);
-      localStorage.theme = THEME.LIGHT;
+      // Get system Theme
+      const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
+      if (darkThemeMq?.matches) {
+        initDocTheme(THEME.DARK);
+        setTheme(THEME.DARK);
+      } else {
+        initDocTheme(THEME.LIGHT);
+      }
     }
   }, [theme]);
 
