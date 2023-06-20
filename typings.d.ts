@@ -20,6 +20,7 @@ interface Slug {
 
 export interface Post extends Base {
   title: string,
+  description: string,
   slug: Slug,
   body: any,
   mainImage: CloudinaryAsset,

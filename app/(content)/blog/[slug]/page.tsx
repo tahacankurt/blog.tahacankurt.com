@@ -1,5 +1,6 @@
 import { groq } from 'next-sanity';
 import React from 'react';
+import { Metadata } from 'next';
 import client from '../../../../lib/sanity.client';
 import { Post } from '../../../../typings';
 import BlockContent from './components/BlockContent';
@@ -43,7 +44,7 @@ export default async function Page({
 // Generate dynamic meta data;
 export async function generateMetadata(
   { params }: Props,
-): Promise {
+): Promise<Metadata> {
   const { slug } = params;
   const postDetail: Post = await client.fetch(getPostItemQuery, { slug });
 
