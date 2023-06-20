@@ -4,7 +4,6 @@ import React from 'react';
 import { draftMode } from 'next/headers';
 // eslint-disable-next-line camelcase
 import { Bebas_Neue, Public_Sans } from 'next/font/google';
-import Head from 'next/head';
 import ThemeProvider from './theme-provider';
 import NavBar from './components/NavBar';
 import SocialMediaContainer from './components/SocialMediaContainer';
