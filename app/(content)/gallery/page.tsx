@@ -1,8 +1,13 @@
 import React from 'react';
 import { groq } from 'next-sanity';
+import { Metadata } from 'next';
 import client from '../../../lib/sanity.client';
 import MasonaryGallery from './components/MasonryGallery';
 
+export const metadata: Metadata = {
+  title: 'Gallery | Taha Cankurt',
+  description: 'Software Engineer | Aka: Digital Nomad | Gallery Page',
+};
 const getGalleryItemsQuery = groq`
  *[_type == "visual"]{
   ...,

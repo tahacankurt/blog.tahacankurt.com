@@ -4,24 +4,26 @@ import client from '../../../../lib/sanity.client';
 import { Post } from '../../../../typings';
 import BlockContent from './components/BlockContent';
 
+type Props = {
+  params: { slug: string }
+}
+
+const getPostItemQuery = groq`*[_type == "post" && slug.current == $slug][0]{
+  ...,
+  title,
+  body[]{
+  ..., 
+  asset->{
+      ...,
+      "_key": _id
+    }
+  }
+} | order(_createdAt desc)`;
+
 export default async function Page({
   params,
-}: {
-  params: { slug: string };
-}) {
-  const getGalleryItemsQuery = groq`*[_type == "post" && slug.current == $slug][0]{
-    ...,
-    title,
-    body[]{
-    ..., 
-    asset->{
-        ...,
-        "_key": _id
-      }
-    }
-  } | order(_createdAt desc)`;
-
-  const postDetail: Post = await client.fetch(getGalleryItemsQuery, { slug: params.slug });
+}: Props) {
+  const postDetail: Post = await client.fetch(getPostItemQuery, { slug: params.slug });
   return (
     <div className="flex justify-center mt-3">
       <div className="w-full lg:w-9/12 ">
@@ -36,4 +38,17 @@ export default async function Page({
 
     </div>
   );
+}
+
+// Generate dynamic meta data;
+export async function generateMetadata(
+  { params }: Props,
+): Promise {
+  const { slug } = params;
+  const postDetail: Post = await client.fetch(getPostItemQuery, { slug });
+
+  return {
+    title: postDetail.title,
+    description: postDetail?.description,
+  };
 }

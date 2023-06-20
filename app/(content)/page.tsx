@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import styles from './page.module.css';
 import SkillList from './components/SkillList';
+
+export const metadata: Metadata = {
+  title: 'Taha Cankurt',
+  description: 'Software Engineer ',
+};
 
 export default function Home() {
   return (
