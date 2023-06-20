@@ -37,14 +37,15 @@ export default function ThemeProvider({
   useEffect(() => {
     // If theme initialized before
     if (theme) {
-      initDocTheme(theme);
+      // initDocTheme(theme);
     } else {
       // Get system Theme
       const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
-
+      initDocTheme(THEME.LIGHT);
+      // setTheme(THEME.DARK);
       if (darkThemeMq?.matches) {
-        initDocTheme(THEME.DARK);
-        setTheme(THEME.DARK);
+        // initDocTheme(THEME.DARK);
+        // setTheme(THEME.DARK);
       } else {
         initDocTheme(THEME.LIGHT);
       }
