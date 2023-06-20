@@ -1,0 +1,8 @@
+@import "../theme/layout.module.css";
+
+.button {
+  @apply neubrutalBtn;
+  width: 100px;
+  height: 100px;
+  font-size: 45px;
+}

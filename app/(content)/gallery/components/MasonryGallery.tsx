@@ -3,9 +3,10 @@
 import Masonry from 'react-masonry-css';
 import React from 'react';
 import GalleryItem from './GalleryItem';
+import { IGalleryItem } from '../../../../typings';
 
 type Props = {
-  galleryItems: Visual[];
+  galleryItems: IGalleryItem[];
 };
 
 export default function MasonaryGallery({ galleryItems }: Props) {
@@ -16,7 +17,7 @@ export default function MasonaryGallery({ galleryItems }: Props) {
           default: 3,
           500: 2,
         }}
-        className="masonry-grid"
+        className="masonry-grid lg:mt-5"
         columnClassName="masonry-grid_column"
       >
         {/* eslint-disable-next-line max-len, no-underscore-dangle */}
@@ -47,6 +48,16 @@ export default function MasonaryGallery({ galleryItems }: Props) {
               object-fit: cover;
             }
           `}
+        </style>
+
+        {/* Hide social media bar on massonary gallery */}
+        {/* eslint-disable-next-line react/no-unknown-property */}
+        <style global jsx>
+          {`
+          .social-media-container {
+            display:none;
+          }
+        `}
         </style>
       </Masonry>
     </div>

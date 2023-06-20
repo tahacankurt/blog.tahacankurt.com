@@ -1,0 +1,52 @@
+@import "../theme/layout.module.css";
+
+.navLink{
+    @apply font-bold hover:opacity-70 bg-black text-white border-none text-center cursor-pointer inline-block max-w-full;
+    padding: 12px 24px;
+    font-size: 16px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.logo{
+    @apply text-5xl lg:ml-0 ml-3;
+    transform: translate(-50%);
+    transform: rotate(-90deg)
+}
+
+.mailIcon{
+    @apply cursor-pointer relative bg-white block neubrutalBtn;
+    margin-top: 2px;
+    height: 45px;
+    width: 45px;
+}
+
+.mailIcon .envelope{
+    @apply absolute top-1/2 left-1/2 bg-black;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    width: 70%;
+    height: 60%;
+}
+
+.mailIcon .envelope:after{
+    @apply bg-white absolute;
+    content: '';
+    top: 40%;
+    left: 14%;
+    transform: translate(-50%,-50%);
+    transform:rotate(30deg);
+    width: 40%;
+    height: 1px;
+}
+
+.mailIcon .envelope:before{
+    @apply bg-white absolute;
+    content: '';
+    top: 40%;
+    right: 14%;
+    transform: translate(-50%,-50%);
+    transform:rotate(-30deg);
+    width: 40%;
+    height: 1px;
+}

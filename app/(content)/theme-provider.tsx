@@ -33,7 +33,7 @@ export default function ThemeProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [theme, setTheme] = useState(localStorage.theme);
+  const [theme, setTheme] = useState(typeof window !== 'undefined' ? localStorage.theme : 'light');
   useEffect(() => {
     // If theme initialized before
     if (theme) {
@@ -41,6 +41,7 @@ export default function ThemeProvider({
     } else {
       // Get system Theme
       const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
+
       if (darkThemeMq?.matches) {
         initDocTheme(THEME.DARK);
         setTheme(THEME.DARK);

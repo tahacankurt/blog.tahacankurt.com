@@ -62,6 +62,8 @@ export default {
       options: { hotspot: true },
     },
     {
+      name: 'code',
+      title: 'Code Block',
       type: 'code',
     },
   ],

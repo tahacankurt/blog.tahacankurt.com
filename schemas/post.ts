@@ -10,6 +10,12 @@ export default defineType({
     type: 'string',
   }),
   defineField({
+    name: 'orderRank',
+    title: 'Order Rank',
+    type: 'string',
+    hidden: true,
+  }),
+  defineField({
     name: 'slug',
     title: 'Slug',
     type: 'slug',

@@ -1,0 +1,18 @@
+.neubrutal-text {
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
+  -webkit-text-stroke: 1px var(--text-color);
+}
+
+.neubrutalBtn {
+  transition: 0.5s;
+  border: 2px solid var(--text-color);
+  border-radius: 4px;
+  box-shadow: 2px 2px 0px var(--text-color);
+}
+
+.neubrutalBtn:hover {
+  filter: brightness(90%);
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}

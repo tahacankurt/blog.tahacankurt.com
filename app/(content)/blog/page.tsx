@@ -1,25 +1,23 @@
-import Link from 'next/link';
 import React from 'react';
-import BlogItem from './components/BlogItem';
+import { groq } from 'next-sanity';
+import BlogItem from './components/BlogListItem';
+import client from '../../../lib/sanity.client';
+import { Post } from '../../../typings';
 
-export default function Blog() {
+const getBlogPosts = groq`
+ *[_type == "post"]{
+  ...
+} | order(_createdAt desc)`;
+
+export default async function Blog() {
+  const blogItems = await client.fetch(getBlogPosts);
+
   return (
-    <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-4 sm:px-6">
-      <Link className="mt-5" href={`blog/${'article-1'}`}>
-        <BlogItem />
-      </Link>
-      <Link className="mt-5" href={`blog/${'article-1'}`}>
-        <BlogItem />
-      </Link>
-      <Link className="mt-5" href={`blog/${'article-1'}`}>
-        <BlogItem />
-      </Link>
-      <Link className="mt-5" href={`blog/${'article-1'}`}>
-        <BlogItem />
-      </Link>
-      <Link className="mt-5" href={`blog/${'article-1'}`}>
-        <BlogItem />
-      </Link>
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      {blogItems.map((blogItem: Post) => (
+        <BlogItem blogItem={blogItem} />
+      ))}
+
     </div>
   );
 }

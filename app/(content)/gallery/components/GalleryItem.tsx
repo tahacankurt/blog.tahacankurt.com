@@ -1,20 +1,22 @@
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import React from 'react';
 import HoverVideoPlayer from 'react-hover-video-player';
+import { IGalleryItem } from '../../../../typings';
+import styles from '../../page.module.css';
 
 type Props = {
-  galleryItem: Visual;
+  galleryItem: IGalleryItem;
 };
 
 export default function GalleryItem({ galleryItem }: Props) {
-  const { title, media } = galleryItem;
+  const { media } = galleryItem;
   return (
-    <div className="lg:p-4 mt-1 sm:p-0">
+    <div className="mt-1 lg:p-0 md:p-4 p-1">
       {media.resource_type === 'video' ? (
-        <div className="transition-all duration-700 hover:scale-105 hover:saturate-100 duration-700 cursor-pointer lg:hover:scale-105 lg:grayscale lg:hover:grayscale-0">
+        <div className="transition-all duration-700  hover:saturate-100 cursor-pointer  lg:grayscale lg:hover:grayscale-0">
           <a href={media.url} target="_blank" rel="noreferrer">
             <HoverVideoPlayer
-              videoClassName="rounded-lg"
+              videoClassName={`rounded-lg ${styles.neuBrutalFrame}`}
               loop={false}
               videoSrc={media.url}
               loadingOverlay={(
@@ -28,13 +30,12 @@ export default function GalleryItem({ galleryItem }: Props) {
         </div>
       ) : (
         <a href={media.url} target="_blank" rel="noreferrer">
-          <Image
-            alt={title}
-            className="transition-all duration-700 hover:scale-105 hover:saturate-100 shadow-2xl rounded-lg cursor-pointer lg:hover:scale-105 lg:grayscale lg:hover:grayscale-0 "
-            src={galleryItem.media.url}
-            width={1227}
-            height={1636}
-            referrerPolicy="no-referrer"
+          <CldImage
+            alt="ts"
+            className={`${styles.neuBrutalFrame}`}
+            width="500"
+            height="600"
+            src={galleryItem.media.public_id}
           />
         </a>
       )}

@@ -13,7 +13,7 @@ export default defineConfig({
   title: 'Taha Cankurt Blog',
   projectId,
   dataset,
-  plugins: [deskTool(), visionTool(), codeInput(), cloudinarySchemaPlugin(), tags({})],
+  plugins: [deskTool({}), visionTool(), codeInput(), cloudinarySchemaPlugin(), tags({})],
   schema: {
     types: schemaTypes,
   },
