@@ -29,12 +29,9 @@ export default defineType({
       type: 'cloudinary.asset',
     }),
     defineField({
-      name: 'myTags',
-      title: 'Tags',
-      type: 'tags',
-      options: {
-        includeFromRelated: 'myTags',
-      },
+      name: 'badge',
+      title: 'badge',
+      type: 'string',
     }),
   ],
   orderings: [
