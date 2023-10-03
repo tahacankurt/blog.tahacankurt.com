@@ -18,18 +18,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'res.cloudinary.com',
-        pathname: '/**',
-      },
-      {
-        protocol: 'http',
-        hostname: 'content.tahacankurt.com.test',
-        pathname: '/**',
-      },
-      {
         protocol: 'https',
-        hostname: 'cdn.sanity.io',
+        hostname: 'http://content.tahacankurt.com',
         pathname: '/**',
       },
     ],
