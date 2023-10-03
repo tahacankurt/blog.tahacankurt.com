@@ -19,7 +19,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'http',
-        hostname: 'content.tahacankurt.com.test',
+        hostname: 'content.tahacankurt.com.test/storage',
         pathname: '/**',
       },
     ],
