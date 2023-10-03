@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { IGalleryItem } from '../../../typings';
 import styles from '../../page.module.css';
-import { CONTENT_SERVICE_URL } from '../../../env';
+import { CDN_URL } from '../../../env';
 import Badge from '../../components/Badge/Badge';
 
 type Props = {
@@ -12,8 +12,8 @@ type Props = {
 const resizeW = 800;
 
 export default function GalleryItem({ galleryItem }: Props) {
-  const resizedImagePath = `${CONTENT_SERVICE_URL}/resized/w-${resizeW}/${galleryItem.image_path}`;
-  const imagePath = `${CONTENT_SERVICE_URL}/${galleryItem.image_path}`;
+  const resizedImagePath = `${CDN_URL}/resized/w-${resizeW}/${galleryItem.image_path}`;
+  const imagePath = `${CDN_URL}/${galleryItem.image_path}`;
   const [showBadge, setShowBadge] = useState(false);
 
   return (

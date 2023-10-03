@@ -18,8 +18,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'content.tahacankurt.com',
+        protocol: 'http',
+        hostname: 'content.tahacankurt.com.test',
         pathname: '/**',
       },
     ],

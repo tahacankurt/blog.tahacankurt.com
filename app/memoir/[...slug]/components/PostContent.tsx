@@ -7,11 +7,11 @@ import styles from '../../../page.module.css';
 import { ITag } from '../../../../typings';
 import Tag from '../../../components/Tag';
 import BlockContent from './BlockContent';
-import { CONTENT_SERVICE_URL } from '../../../../env';
 import PlaceList from '../../../components/GooglePlace/PlaceList';
+import { CDN_URL } from '../../../../env';
 
 function PostContent({ postDetail }: any) {
-  const imagePath = `${CONTENT_SERVICE_URL}/${postDetail.main_image_path}`;
+  const imagePath = `${CDN_URL}/${postDetail.main_image_path}`;
   return (
     <div className="w-full justify-center flex">
       {/* eslint-disable-next-line react/no-unknown-property */}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import {
+  CDN_URL,
   CONTENT_SERVICE_URL,
   SITE_URL,
 } from '../../../env';
@@ -37,7 +38,7 @@ export async function generateMetadata(
   { params }: Props,
 ): Promise<Metadata> {
   const { data: postDetail } : any = await getPost(params.slug);
-  const imagePath = `${CONTENT_SERVICE_URL}/${postDetail.main_image_path}`;
+  const imagePath = `${CDN_URL}/${postDetail.main_image_path}`;
   return {
     title: postDetail.title,
     description: postDetail?.caption,
