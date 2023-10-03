@@ -1,0 +1,48 @@
+@import "./theme/layout.module.css";
+
+.title{
+  @apply text-5xl mt-6 lg:text-6xl lg:mt-20 font-semibold neubrutal-text;
+  color: var(--text-bg-color);
+
+}
+
+.subTitle{
+  @apply text-4xl mt-10 lg:text-5xl lg:mt-16 neubrutal-text;
+  color: var(--text-bg-color);;
+
+}
+
+.neuBrutalFrame{
+  border: 2px solid black;
+  margin: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 2px 2px black;
+  transition: .6s;
+  @media (max-width: 600px) {
+    margin:0;
+    &:hover{
+      transform: none;
+      box-shadow: none;
+  }
+  }
+
+  &:hover{
+      transform: translate(2px,2px);
+      box-shadow: none;
+  }
+}
+
+.highlight{
+  color: var(--glow-green);
+  rotate: -4deg;
+  display: inline-block;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+

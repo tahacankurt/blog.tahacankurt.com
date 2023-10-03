@@ -10,7 +10,7 @@ module.exports = {
     extend:{
       colors: {
         neuorange: '#f77f00',
-        neupurpe: '#822faf',
+        neupurple: '#822faf',
       },
     },
     screens: {

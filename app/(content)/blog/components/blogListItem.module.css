@@ -1,8 +1,0 @@
-.itemLink{
-    @apply block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-stone-900 dark:border-stone-700 dark:hover:bg-stone-800;
-    
-}
-
-.itemTitle{
-    @apply mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white;
-}

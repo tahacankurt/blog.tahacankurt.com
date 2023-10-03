@@ -1,0 +1,13 @@
+ul:not(.contains-task-list){
+    margin-left: 15px;
+}
+li {
+    font-family: var(--font-public-sans);
+}
+
+.task-list-item {
+    margin-top: 15px;
+    input {
+        margin-right: 5px;
+    }
+}
