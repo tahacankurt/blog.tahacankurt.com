@@ -58,10 +58,9 @@ export default function GalleryItem({ galleryItem }: Props) {
               )}
           <Image
             src={resizedImagePath}
-            unoptimized
             width={resizeW}
             loading="lazy"
-            height={800}
+            height={500}
             className={`${styles.neuBrutalFrame}`}
             alt={galleryItem.description}
           />

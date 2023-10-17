@@ -29,6 +29,7 @@
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
+    "@vercel/analytics": "^1.1.1",
     "autoprefixer": "^10.4.13",
     "eslint-config-next": "13.0.5",
     "next": "^13.4.19",

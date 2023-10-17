@@ -2,8 +2,11 @@ import './globals.css';
 import React from 'react';
 
 import { draftMode } from 'next/headers';
+
 // eslint-disable-next-line camelcase
 import { Bebas_Neue, Public_Sans } from 'next/font/google';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Analytics } from '@vercel/analytics/react';
 import ThemeProvider from './theme-provider';
 import NavBar from './components/NavBar';
 import SocialMediaContainer from './components/SocialMediaContainer';
@@ -56,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <SocialMediaContainer />
           </main>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

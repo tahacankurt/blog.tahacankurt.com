@@ -54,6 +54,7 @@ export interface IPost {
   title: string,
   description: string,
   main_image_path: string,
+  day_passed: number,
   slug: Slug,
   country : {
     name: string,
