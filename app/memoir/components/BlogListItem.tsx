@@ -20,7 +20,7 @@ function BlogItem({ blogItem, categorySlug = null } : Props) {
       onMouseEnter={() => {
         setIsHovered(true);
       }}
-      onMouseLeave={() => { setIsHovered(false) }}
+      onMouseLeave={() => { setIsHovered(false); }}
       href={`${postUrl}`}
       className={styles.itemLink}
     >
